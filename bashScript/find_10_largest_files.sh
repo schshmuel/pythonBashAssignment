@@ -6,9 +6,9 @@ get_input_dir(){
 	local OPTIND
 	while getopts ":d:" flag;
 	do
-   		 case "$flag" in
+   		case "$flag" in
         		d) DIR=$OPTARG;;
-    	esac
+    		esac
 	done
 }
 
