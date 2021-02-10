@@ -4,9 +4,8 @@ import sys
 from github import Github, Repository
 
 
-def find_primary_languages(repo: Repository) -> str:
+def find_primary_language(repo: Repository) -> str:
     languages = repo.get_languages()
-    print(languages)
     if not languages:
         return None
     else:
@@ -20,8 +19,8 @@ def main(access_token: str):
     # Notice, there is one to one connection between repo with org:kubernetes and user:kubernetes
     repositories = g.search_repositories(query='user:kubernetes', sort='stars', order='desc')
     for repo in repositories:
-        main_language = find_primary_languages(repo)
-        print(f"{repo.full_name}:{repo.stargazers_count}:{main_language}")
+        primary_language = find_primary_language(repo)
+        print(f"{repo.full_name} has {repo.stargazers_count} stargazers and primary_language is {primary_language}")
         sys.stdout.flush()
 
 

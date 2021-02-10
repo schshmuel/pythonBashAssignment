@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "githubSorter.fullname" . }}
+spec:
+  template:
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: schshmuel/pygithub:{{ .Values.image.tag }}
+        imagePullPolicy: Always
+        env:
+          - name: GITHUB_ACCESS_TOKEN
+            value: {{ .Values.env.GITHUB_ACCESS_TOKEN }}
+      restartPolicy: OnFailure
+  backoffLimit: 4
