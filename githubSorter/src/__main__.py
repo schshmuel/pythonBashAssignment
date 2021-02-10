@@ -58,9 +58,9 @@ if __name__ == '__main__':
     db_name = os.getenv('DB_NAME')
     db_user = os.getenv('DB_USER')
     db_password = os.getenv('DB_PASSWORD')
-    conn, curse = connect_postgresql_db(db_host, db_name, db_user, db_password)
     repositories = find_repositories(access_token)
     insert_values = loop_over_repos(repositories)
+    conn, curse = connect_postgresql_db(db_host, db_name, db_user, db_password)
     table = "github"
     insert_to_db(conn, curse, table, insert_values)
     close_db_connection(conn, curse)
