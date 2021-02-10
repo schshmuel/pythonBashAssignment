@@ -8,11 +8,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # copy the content of the local src directory to the working directory
-COPY src app/
-
-
-# set the working directory in the container
-WORKDIR /app
+COPY src/ app/
 
 # command to run on container start
-CMD [ "python", "-m","src" ]
+CMD [ "python", "-m","app" ]
