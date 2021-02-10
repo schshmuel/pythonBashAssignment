@@ -9,3 +9,7 @@ image:
 
 env:
   GITHUB_ACCESS_TOKEN:
+  DB_HOST: "my-release-postgresql"
+  DB_NAME: "my-database"
+  DB_USER: "postgres"
+  DB_PASSWORD: "secret"
