@@ -37,6 +37,8 @@ def find_repositories(access_token: str):
 def insert_to_db(conn, curse, table: str, insert_values: list):
     sql = f"INSERT INTO {table} VALUES(%s,%s,%s)"
     curse.executemany(sql, insert_values)
+    print(f"Writing to values {insert_values} to table {table}")
+    sys.stdout.flush()
     conn.commit()
 
 
