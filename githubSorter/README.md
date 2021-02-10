@@ -9,4 +9,4 @@ Few points:
     4. Shows the github table before and after applying the job
     5. Removes application and DB
 - src folder contains the python code
-- helm contains the chart
+- helm folder contains the chart
