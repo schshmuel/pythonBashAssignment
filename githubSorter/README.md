@@ -10,4 +10,4 @@ Few remarks:
     5. Removes application and DB
 - src folder contains the python code
 - helm folder contains the chart
-- CI is configured between github and dockerHub
+- AUTO CI is configured between github and dockerHub
