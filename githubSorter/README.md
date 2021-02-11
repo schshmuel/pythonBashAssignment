@@ -1,6 +1,6 @@
 # githubSorter
 
-Few points:
+Few remarks:
 
 - Install_and_remove_script is a short script which:
   1. Installs postgresql
@@ -10,3 +10,4 @@ Few points:
     5. Removes application and DB
 - src folder contains the python code
 - helm folder contains the chart
+- CI is configured between github and dockerHub
