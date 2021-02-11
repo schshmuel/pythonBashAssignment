@@ -7,7 +7,7 @@ helm install my-release ^
   --set postgresqlPassword=secret,postgresqlDatabase=my-database ^
     bitnami/postgresql
 
-kubectl wait --for=condition=Ready pod/my-release-postgresql-0
+kubectl wait --for=condition=Ready pod/my-release-postgresql-0 --timeout=300s
 
 echo ##########Creating github table##########
 
@@ -21,7 +21,7 @@ echo ##########Installing app with helm##########
 
 helm install app1 --set env.GITHUB_ACCESS_TOKEN=0a5c821306764e13a4e1c5424e1fab3bd0a7711b helm\githubSorter
 
-kubectl wait pod -l job-name=app1-githubsorter --for=condition=Completed
+kubectl wait pod -l job-name=app1-githubsorter --for=condition=Completed --timeout=300s
 
 echo ##########Show DB status after applying the job##########
 
