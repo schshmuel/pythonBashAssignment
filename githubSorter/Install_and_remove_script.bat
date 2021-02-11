@@ -19,7 +19,7 @@ kubectl exec -it my-release-postgresql-0 -- sh -c "export PGPASSWORD=secret   &&
 
 echo ##########Installing app with helm##########
 
-helm install app1 --set env.GITHUB_ACCESS_TOKEN=0a5c821306764e13a4e1c5424e1fab3bd0a7711b helm\githubSorter
+helm install app1 --set env.GITHUB_ACCESS_TOKEN=d8540c7c0cad41c73536c20e50c0e44c6dc4fb5c helm\githubSorter
 
 kubectl wait pod -l job-name=app1-githubsorter --for=condition=Completed --timeout=300s
 
