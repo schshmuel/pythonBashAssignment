@@ -1,3 +1,7 @@
+@echo off
+
+set /p token="Enter GITHUB_ACCESS_TOKEN: "
+
 
 helm repo add bitnami https://charts.bitnami.com/bitnami
 
@@ -19,7 +23,7 @@ kubectl exec -it my-release-postgresql-0 -- sh -c "export PGPASSWORD=secret   &&
 
 echo ##########Installing app with helm##########
 
-helm install app1 --set env.GITHUB_ACCESS_TOKEN=e93559392b90d32e5150563d98271bca3bef2851 helm\githubSorter
+helm install app1 --set env.GITHUB_ACCESS_TOKEN=%token% helm\githubSorter
 
 kubectl wait pod -l job-name=app1-githubsorter --for=condition=Completed
 
@@ -27,7 +31,7 @@ echo ##########Show DB status after applying the job##########
 
 kubectl exec -it my-release-postgresql-0 -- sh -c "export PGPASSWORD=secret   && psql -U postgres -d my-database -c 'select * from github'"
 
-echo ##########Show DB status after applying the jobRemove helm charts & pvc##########
+echo ##########Show DB status after applying the jobRemove helm charts and pvc##########
 
 helm uninstall app1
 
