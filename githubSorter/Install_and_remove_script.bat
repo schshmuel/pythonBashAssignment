@@ -31,7 +31,7 @@ echo ##########Show DB status after applying the job##########
 
 kubectl exec -it my-release-postgresql-0 -- sh -c "export PGPASSWORD=secret   && psql -U postgres -d my-database -c 'select * from github'"
 
-echo ##########Show DB status after applying the jobRemove helm charts and pvc##########
+echo ##########Removing helm releases and pvc##########
 
 helm uninstall app1
 
